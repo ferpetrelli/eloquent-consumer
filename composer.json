@@ -1,0 +1,32 @@
+{
+    "name": "petrelli/eloquent-consumer",
+    "description": "API consumer and query builder that uses Eloquent like syntax",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+      "A17",
+      "eloquent",
+      "api",
+      "consumer"
+    ],
+    "authors": [
+        {
+            "name": "Fernando Petrelli",
+            "email": "contact@fernandopetrelli.com"
+        }
+    ],
+    "require": {
+      "php": "^7.0",
+      "guzzlehttp/guzzle": "6.3.0",
+      "jenssegers/model": "^1.2"
+    },
+    "autoload": {
+      "psr-4": {
+        "Petrelli\\EloquentConsumer\\": "src/"
+      },
+      "files": [
+        "src/Helpers/CollectionHelper.php"
+      ]
+    },
+    "minimum-stability": "stable"
+}

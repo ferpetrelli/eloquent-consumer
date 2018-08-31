@@ -1,0 +1,21 @@
+<?php
+
+namespace App\{{namespace}};
+
+use \Petrelli\EloquentConsumer\Endpoints\BaseEndpoint;
+
+class {{className}} extends BaseEndpoint
+{
+
+	// Mandatory
+	protected $baseUri;
+
+	// Recommended
+    // protected $connectionClass;
+    // protected $grammarClass;
+    // protected $consumerClass;
+
+	// Optional
+    // protected $defaultTTL;
+
+}
