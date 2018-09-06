@@ -11,7 +11,7 @@ class ConsumerGuzzle implements ConsumerInterface
 {
 
 
-    private $client;
+    protected $client;
 
 
     function __construct($options = [])

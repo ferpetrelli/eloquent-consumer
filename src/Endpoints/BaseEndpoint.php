@@ -149,7 +149,7 @@ class BaseEndpoint
              *
              */
             if ($this->consumerClass && class_exists($this->consumerClass)) {
-                return new $connection($this->defaultTTL, $this->transformerClass, new $this->consumerClass);
+                return new $connection($this->defaultTTL, $this->transformerClass, new $this->consumerClass($this->getConsumerOptions()));
             } else {
                 return new $connection($this->defaultTTL, $this->transformerClass, app(ConsumerInterface::class, $this->getConsumerOptions()));
             }
