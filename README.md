@@ -5,6 +5,8 @@ Eloquent API Consumer will allow you to solve two main problems regarding API's 
 1. Generate and execute API calls in a clear and simple way
 2. Process API responses and generate Eloquent like models and collections (including paginated ones)
 
+You can see an example application here: [Eloquent Consumer Example APP](https://github.com/ferpetrelli/eloquent-consumer-test).
+
 
 ## Development Note
 
@@ -402,7 +404,7 @@ We have now to refactor this response to fit the library standards so everything
 
 This will be done easily with a TransformerClass.
 
-```
+```php
 <?php
 
 namespace App\ApiConsumer\Transformers;

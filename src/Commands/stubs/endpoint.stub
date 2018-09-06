@@ -7,13 +7,13 @@ use \Petrelli\EloquentConsumer\Endpoints\BaseEndpoint;
 class {{className}} extends BaseEndpoint
 {
 
-	// Mandatory
-	protected $baseUri;
+    // Mandatory
+    protected $baseUri;
 
-	// Optional
+    // Optional
     // protected $defaultTTL;
 
-	// Customizable
+    // Customizable
     // protected $grammarClass;
     // protected $consumerClass;
     // protected $transformerClass;
