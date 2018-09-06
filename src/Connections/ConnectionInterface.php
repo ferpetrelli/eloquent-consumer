@@ -10,7 +10,7 @@ interface ConnectionInterface
 {
 
 
-    public function __construct($defaultTTL, ConsumerInterface $client);
+    public function __construct($defaultTTL, $transformerClass, ConsumerInterface $client);
 
     /**
      *

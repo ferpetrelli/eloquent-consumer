@@ -26,6 +26,8 @@ class BaseEndpoint
 
     protected $consumerClass;
 
+    protected $transformerClass;
+
 
     public function __construct($endpoints)
     {
@@ -147,9 +149,9 @@ class BaseEndpoint
              *
              */
             if ($this->consumerClass && class_exists($this->consumerClass)) {
-                return new $connection($this->defaultTTL, new $this->consumerClass);
+                return new $connection($this->defaultTTL, $this->transformerClass, new $this->consumerClass);
             } else {
-                return new $connection($this->defaultTTL, app(ConsumerInterface::class, $this->getConsumerOptions()));
+                return new $connection($this->defaultTTL, $this->transformerClass, app(ConsumerInterface::class, $this->getConsumerOptions()));
             }
         } else {
             throw new \Exception('Please define a connection class for this endpoint, or define a default one at the eloquent-consumer configuration file');

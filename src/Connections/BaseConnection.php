@@ -31,10 +31,11 @@ class BaseConnection implements ConnectionInterface
      * @return void
      *
      */
-    public function __construct($defaultTTL, ConsumerInterface $consumer)
+    public function __construct($defaultTTL, $transformerClass = null, ConsumerInterface $consumer)
     {
 
         $this->consumer = $consumer;
+        $this->transformerClass = $transformerClass;
 
         $this->ttl = $defaultTTL;
 
@@ -151,7 +152,7 @@ class BaseConnection implements ConnectionInterface
      *
      * For example on the default consumer (Guzzle) parameters should be:
      *
-     * ['query' => [ 'par1' => val1, 'par2' => val2 .....]]
+     * ['body' => [ 'par1' => val1, 'par2' => val2 .....]]
      *
      * @param  array $params
      * @return array Adapted parameters

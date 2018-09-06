@@ -61,11 +61,7 @@ class ConsumerGuzzle implements ConsumerInterface
      */
     public function headers($params)
     {
-
-        $headers = ['Content-Type' => 'application/json'];
-
-        if (isset($params['headers']))
-            $headers = array_merge($default, $params['headers']);
+        $headers = $params['headers'] ?? [];
 
         return ['headers' => $headers];
 

@@ -10,12 +10,12 @@ class {{className}} extends BaseEndpoint
 	// Mandatory
 	protected $baseUri;
 
-	// Recommended
-    // protected $connectionClass;
-    // protected $grammarClass;
-    // protected $consumerClass;
-
 	// Optional
     // protected $defaultTTL;
+
+	// Customizable
+    // protected $grammarClass;
+    // protected $consumerClass;
+    // protected $transformerClass;
 
 }

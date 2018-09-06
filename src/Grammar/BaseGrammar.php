@@ -24,7 +24,6 @@ class BaseGrammar
         'columns',
         'include',
         'searchText',
-        'searchResources',
         'aggregationParameters',
         'rawQuery'
     ];
@@ -137,12 +136,6 @@ class BaseGrammar
     protected function compileIds($query, $ids)
     {
         return empty($ids) ? [] : ['ids' => join(',', $ids)];
-    }
-
-
-    protected function compileSearchResources($query, $resources)
-    {
-        return empty($resources) ? [] : ['resources' => join(',', $resources)];
     }
 
 

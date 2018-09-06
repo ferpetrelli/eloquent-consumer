@@ -190,20 +190,6 @@ class ModelBuilder
 
 
     /**
-     * When searching filter by specific resources
-     *
-     * @param  array $resources
-     * @return $this
-     */
-    public function resources(array $resources)
-    {
-        $this->query->resources($resources);
-
-        return $this;
-    }
-
-
-    /**
      * Setup a TTL for this specific query call
      *
      * @param  integer $ttl

@@ -123,12 +123,6 @@ class QueryBuilder
      */
     public $aggregationParameters = [];
 
-    /**
-     * Search specific resources. Useful only for general searches
-     *
-     * @var array
-     */
-    public $searchResources = [];
 
     /**
      * Pagination data saved after a request
@@ -344,20 +338,6 @@ class QueryBuilder
         if ($value >= 0) {
             $this->limit = $value;
         }
-
-        return $this;
-    }
-
-
-    /**
-     * Search for specific resources
-     *
-     * @param  string  $search
-     * @return $this
-     */
-    public function resources($resources)
-    {
-        $this->searchResources = $resources;
 
         return $this;
     }
