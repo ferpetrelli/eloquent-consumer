@@ -365,7 +365,7 @@ class QueryBuilder
      */
     public function rawQuery($search)
     {
-        $this->rawQuery = $search;
+        $this->rawQuery = array_merge_recursive($this->rawQuery, $search);
 
         return $this;
     }
