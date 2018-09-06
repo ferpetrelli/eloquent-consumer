@@ -56,13 +56,13 @@ Let's perform some calls right now:
 \App\Book::query()->findOrFail($id);
 
 // Let's get a collection of search results for a term. This will simply add a 'q=Julio Cortazar' parameter to the query by default.
-`\App\Book::query()->search('Julio Cortazar')->get()`
+\App\Book::query()->search('Julio Cortazar')->get()
 
 // Call to the collection endpoint, and let's just add a customized parameter to this call to search books by ISBN.
-`\App\Book::query()->rawQuery(['ISBN' => 123456])->get()`
+\App\Book::query()->rawQuery(['ISBN' => 123456])->get()
 
 // Call to the collection endpoint, and return a collection of Books with only id, and title columns
-\App\Book::query()->get(['id, 'title']);
+\App\Book::query()->get(['id', 'title']);
 
 ```
 
@@ -195,18 +195,15 @@ class MainEndpoint extends BaseEndpoint
     //Mandadory if not added at the general config file. Number of seconds each call will be cached.
     protected $defaultTTL;
 
-      //Custom Grammar or Consumer classes
+    //Custom Grammar or Consumer classes
     protected $grammarClass;
     protected $consumerClass;
 
-    //---
+    //......
 }
 ```
 
-* Base URI ()
-* Default TTL when caching (mandatory if not at the config file)
-
-And more importantly, you could replace the default entities as well:
+Keep in mind these options:
 
 * Consumer Class
 * Grammar Class
@@ -225,7 +222,7 @@ Creating a new Consumer class could be useful if you had to add new options like
 
 ## Grammar
 
-A Grammar class basically a collector that transforms all the information you gave to the Query Builder into fields sent out in your API request.
+A Grammar class basically a collector that transforms all the information you gave to the Query Builder into fields that will be sent in your API request.
 
 It's a very simple class that you can extend and adjust to your API specs.
 
@@ -241,7 +238,7 @@ protected function compileSearchText($query, $text)
 }
 ```
 
-Here you see that the function search() will be transformed into a parameter named `q`.
+Here you see that the function `search('term')` will be transformed into a parameter named `q`.
 
 Please refer to our default grammar class code, and you will observe there how we process all options.
 
@@ -317,7 +314,7 @@ use \Petrelli\EloquentConsumer\Grammar\BaseGrammar;
 class MyOwnGrammar extends BaseGrammar
 {
 
-      protected function compilePage($query, $page)
+    protected function compilePage($query, $page)
     {
         return ['page_number' => $page];
     }
@@ -347,13 +344,16 @@ After everything is configured we can start using this model almost as if it was
 \App\Book::query()->findOrFail($id);
 
 // Let's get a collection of search results for a term. This will simply add a 'q=Julio Cortazar' parameter to the query by default.
-`\App\Book::query()->search('Julio Cortazar')->get()`
+\App\Book::query()->search('Julio Cortazar')->get();
 
 // Call to the collection endpoint, and let's just add a customized parameter to this call to search books by ISBN.
-`\App\Book::query()->rawQuery(['ISBN' => 123456])->get()`
+\App\Book::query()->rawQuery(['ISBN' => 123456])->get();
 
 // Call to the collection endpoint, and return a collection of Books with only id, and title columns
-\App\Book::query()->get(['id, 'title']);
+\App\Book::query()->get(['id', 'title']);
+
+// Call to the customized 'something' endpoint, and return a collection of Books with only id, and title columns
+\App\Book::query()->forceEndpoint('something')->get(['id', 'title']);
 
 ```
 
@@ -391,7 +391,8 @@ This will pass a `published=true` parameter when performing the API call (becaus
 
 ## Relationships
 
-TODO
+Documentation to be completed.
+
 
 # Transformer classes
 
