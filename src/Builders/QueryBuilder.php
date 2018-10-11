@@ -452,7 +452,8 @@ class QueryBuilder
         $collection->setMetadata([
             'pagination'   => $results->body->pagination ?? null,
             'aggregations' => $results->body->aggregations ?? null,
-            'suggestions'  => $results->body->suggest ?? null
+            'suggestions'  => $results->body->suggest ?? null,
+            'response'     => $results,
         ]);
 
         return $collection;
@@ -488,7 +489,8 @@ class QueryBuilder
         $collection->setMetadata([
             'pagination'   => $results->body->pagination ?? null,
             'aggregations' => $results->body->aggregations ?? null,
-            'suggestions'  => $results->body->suggest ?? null
+            'suggestions'  => $results->body->suggest ?? null,
+            'response'     => $results,
         ]);
 
         return $collection;
